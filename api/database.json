@@ -1,0 +1,66 @@
+{
+  "computers": [
+      {
+          "id": 1,
+          "model": "Macbook Pro",
+          "year": 2015
+      },
+      {
+          "id": 2,
+          "model": "Asus Zephrus G14",
+          "year": 2020
+      },
+      {
+          "id": 3,
+          "model": "MSI Codex XE Plus",
+          "year": 2015
+      },
+      {
+          "id": 4,
+          "model": "ABS iCUE T",
+          "year": 2015
+      },
+      {
+          "id": 5,
+          "model": "Acer Nitro 50",
+          "year": 2015
+      }
+  ],
+  "employees": [
+      {
+          "id": 1,
+          "firstName": "Rainu",
+          "lastName": "Ittycheriah",
+          "age": 35,
+          "computerId": 1
+      },
+      {
+          "id": 2,
+          "firstName": "Rainu",
+          "lastName": "Ittycheriah",
+          "age": 35,
+          "computerId": 1
+      },
+      {
+          "id": 3,
+          "firstName": "Rainu",
+          "lastName": "Ittycheriah",
+          "age": 35,
+          "computerId": 1
+      },
+      {
+          "id": 4,
+          "firstName": "Rainu",
+          "lastName": "Ittycheriah",
+          "age": 35,
+          "computerId": 1
+      },
+      {
+          "id": 5,
+          "firstName": "Rainu",
+          "lastName": "Ittycheriah",
+          "age": 35,
+          "computerId": 1
+      }
+  ]
+}
