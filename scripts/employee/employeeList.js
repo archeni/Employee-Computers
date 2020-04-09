@@ -4,6 +4,9 @@
 */
 import { useEmployees } from "./employeeDataProvider.js";
 import { useComputers } from "../computer/computerDataProvider.js";
+import { employeeHTML } from "./employeeHTML.js";
+import { useDepartment } from "../department/departmentDataProvider.js";
+import { useLocations } from "../location/locationDataProvider.js";
 
 
 const eventHub = document.querySelector(".container")
@@ -11,19 +14,31 @@ const eventHub = document.querySelector(".container")
 const render = () => {
   const allEmployees = useEmployees()
   const allComputers = useComputers()
+  const allDepartments = useDepartment()
+  const allLocations = useLocations()
 
-  eventHub.innerHTML = `
-  
-  `
+  eventHub.innerHTML = allEmployees.map(
+    (employee) => {
+      const computerIWant = allComputers.find(
+        (computer) => employee.computerId === computer.id)
+
+      const departmentIWant = allDepartments.find(
+        (department) => employee.departmentId === department.id)
+
+      const locationIWant = allLocations.find(
+        (location) => employee.locationId === location.id)
+
+      return employeeHTML(employee, computerIWant, departmentIWant, locationIWant)
+    }
+  )
 }
  
 
 // Adds a head title to the saved itineraries list
-export const savedTripsFunc = () => {contentElement.innerHTML += `<h2>Saved Trips</h2>`}
 
 
 // exports render function
-export const renderSavedItineraries = () =>{
+export const renderEmployeeList = () =>{
     render()
 }
        
