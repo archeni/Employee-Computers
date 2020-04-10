@@ -7,6 +7,8 @@ import { useComputers } from "../computer/computerDataProvider.js";
 import { employeeHTML } from "./employeeHTML.js";
 import { useDepartment } from "../department/departmentDataProvider.js";
 import { useLocations } from "../location/locationDataProvider.js";
+import { useCustomers } from "../customer/customerDataProvider.js";
+import { useEmployeeCustomers } from "../customer/employeeCustomerDataProvider.js";
 
 
 const eventHub = document.querySelector(".container")
@@ -16,6 +18,8 @@ const render = () => {
   const allComputers = useComputers()
   const allDepartments = useDepartment()
   const allLocations = useLocations()
+  const allCustomers = useCustomers()
+  const allEmployeeCustomers = useEmployeeCustomers()
 
   eventHub.innerHTML = allEmployees.map(
     (employee) => {
@@ -27,10 +31,17 @@ const render = () => {
 
       const locationIWant = allLocations.find(
         (location) => employee.locationId === location.id)
+      
+      const EandCIWant = allEmployeeCustomers.filter(
+        (relations) => employee.id === relations.employeeId)
 
-      return employeeHTML(employee, computerIWant, departmentIWant, locationIWant)
+      const customersIWant = EandCIWant.map(relationship => {
+        return allCustomers.find(customer => customer.id === relationship.customerId)
+      })
+
+      return employeeHTML(employee, computerIWant, departmentIWant, locationIWant, customersIWant)
     }
-  )
+  ).join('')
 }
  
 
